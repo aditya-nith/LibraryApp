@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LibraryApp</string>
+    <string name="greet_text">Hello Student, check out the list of your borrowed books below</string>
+</resources>

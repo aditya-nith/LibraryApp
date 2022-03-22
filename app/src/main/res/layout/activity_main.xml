@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F6F6"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/topTe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Login to Access the content" />
+
+    <EditText
+        android:id="@+id/emailEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="22sp"
+        android:hint="Email / UserID" />
+
+    <EditText
+        android:id="@+id/passEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@color/white"
+        android:inputType="numberPassword"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
+        android:hint="Password / Security PIN" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginBtn"
+        android:padding="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Continue"
+        android:textAllCaps="false"
+        app:cornerRadius="8dp" />
+
+
+</LinearLayout>

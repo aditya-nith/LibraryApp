@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "939170819511",
+    "project_id": "libraryapp-dev-fb3a4",
+    "storage_bucket": "libraryapp-dev-fb3a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939170819511:android:e080af27c42b5d7ef04c32",
+        "android_client_info": {
+          "package_name": "com.libraryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939170819511-sg4l7odvicd9a625a4k7ck8ko55s0oqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ90sAHaQBgWiz99WXRiDja20hekcNQWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939170819511-sg4l7odvicd9a625a4k7ck8ko55s0oqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
