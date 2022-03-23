@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -29,6 +30,11 @@ public class StudentActivity extends AppCompatActivity {
     FirebaseFirestore firestore;
     FirebaseAuth mAuth;
     User user;
+
+    public void library(View view){
+        Intent intent = new Intent(this, LibraryActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +73,9 @@ public class StudentActivity extends AppCompatActivity {
                         }
                     });
         } else {
+            findViewById(R.id.newBook).setVisibility(View.GONE);
             firestore.collection("users")
-                    .document(mAuth.getCurrentUser().getUid())
+                    .document(mAuth.getCurrentUser().getEmail())
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
@@ -92,7 +99,7 @@ public class StudentActivity extends AppCompatActivity {
     private void showUser(ArrayList<Book> books) {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         ProgressBar progressBar = findViewById(R.id.progressBar);
-        BooksAdapter adapter = new BooksAdapter(user, books);
+        BooksAdapter adapter = new BooksAdapter(user, books, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         progressBar.setVisibility(View.GONE);
@@ -101,14 +108,16 @@ public class StudentActivity extends AppCompatActivity {
     private void generateNewUser(){
         ProgressBar progressBar = findViewById(R.id.progressBar);
         user = new User(mAuth.getCurrentUser()
-        .getEmail().split("@")[0], "student", null, new StudentExtras(
+        .getEmail(), "student", null, new StudentExtras(
                 mAuth.getCurrentUser()
                 .getUid(),
                 new ArrayList<Book>(),
                 new ArrayList<Book>()
         ));
+
+
         firestore.collection("users")
-                .document(mAuth.getCurrentUser().getUid())
+                .document(mAuth.getCurrentUser().getEmail())
                 .set(user)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

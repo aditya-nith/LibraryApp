@@ -17,7 +17,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add details about any new book here" />
+            android:text="Add borrow details here" />
+
+        <EditText
+            android:id="@+id/userIdEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@android:color/white"
+            android:textColor="@color/black"
+            android:layout_marginTop="32dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:hint="Email ID" />
 
         <EditText
             android:id="@+id/nameEt"
@@ -26,13 +37,13 @@
             android:padding="16dp"
             android:background="@android:color/white"
             android:textColor="@color/black"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:textColorHint="@android:color/darker_gray"
-            android:hint="Name" />
+            android:hint="Student Name" />
 
 
         <EditText
-            android:id="@+id/authorEt"
+            android:id="@+id/issueDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -40,10 +51,10 @@
             android:textColor="@color/black"
             android:layout_marginTop="8dp"
             android:textColorHint="@android:color/darker_gray"
-            android:hint="Author" />
+            android:hint="Issue Date" />
 
         <EditText
-            android:id="@+id/imageLinkEt"
+            android:id="@+id/returnEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -51,14 +62,25 @@
             android:textColor="@color/black"
             android:layout_marginTop="8dp"
             android:textColorHint="@android:color/darker_gray"
-            android:hint="Image Link" />
+            android:hint="Return By Date" />
+
+        <EditText
+            android:id="@+id/remarksEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@android:color/white"
+            android:textColor="@color/black"
+            android:layout_marginTop="8dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:hint="Remarks" />
 
         <com.google.android.material.button.MaterialButton
             android:layout_marginTop="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/uploadBtn"
-            android:text="Upload"
+            android:text="Save Data"
             android:padding="16dp"
             android:textAllCaps="false" />
 

@@ -1,11 +1,15 @@
 package com.libraryapp.Adapaters;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.libraryapp.BorrowBook;
 import com.libraryapp.Models.Book;
 import com.libraryapp.Models.IssueClass;
 import com.libraryapp.Models.User;
@@ -21,10 +25,12 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewHolder
 
     private User user;
     private ArrayList<Book> books;
+    private Activity context;
 
-    public BooksAdapter(User user, ArrayList<Book> books) {
+    public BooksAdapter(User user, ArrayList<Book> books, Activity context) {
         this.user = user;
         this.books = books;
+        this.context = context;
     }
 
     @NonNull
@@ -58,6 +64,8 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewHolder
             }
 
             holder.descriptionTxt.setText(desTxt);
+            holder.add.setVisibility(View.GONE);
+
         } else {
             String des = "";
             for (IssueClass issueClass : books.get(position).getIssueClasses()) {
@@ -70,8 +78,20 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewHolder
             }
 
             holder.descriptionTxt.setText(des);
+            holder.add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    launchBorrowActivity(position);
+                }
+            });
         }
 
+    }
+
+    private void launchBorrowActivity(int position) {
+        Intent intent = new Intent(context, BorrowBook.class);
+        intent.putExtra("bookId", books.get(position).getId());
+        context.startActivity(intent);
     }
 
     @Override
@@ -84,12 +104,14 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.MyViewHolder
         TextView headerTxt;
         TextView descriptionTxt;
         ImageView imageView;
+        Button add;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             headerTxt = itemView.findViewById(R.id.header_title);
             imageView = itemView.findViewById(R.id.imageView);
             descriptionTxt = itemView.findViewById(R.id.description);
+            add = itemView.findViewById(R.id.addBorrower);
         }
     }
 }
